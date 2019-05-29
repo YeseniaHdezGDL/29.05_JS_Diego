@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+         <!-- <script src="ejercicios.js"></script> Si se quiere ejecutar así, tendría que ponerlo al final, antes de finalizar la etiqueta body-->
+    </head>
+    <body>
+        <!--EJERCICIO 1: Fecha-->
+        <br>
+        <script>
+            var f = new Date();
+            document.writeln(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+        </script>
+        <br>
+        <script>
+            var hoy = "La fecha de hoy es: "
+            var fecha = new Date();
+            console.log, (`${hoy.toUpperCase()} ${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} y la hora es ${fecha.getHours()}`)
+            document.writeln(`${hoy.toUpperCase()} ${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} y la hora es ${fecha.getHours()}`)
+        </script>
+        <br>
+        <!--EJERCICIO 2: Obtener área de un triángulo que se sabe la longitud de sus tres lados.-->
+        <script> /*
+            let lado1 = Number(prompt("Longitud en centímetros del lado 1: ")); //recordar convertir el valor a numero (Number(prompt...)) o con parseInt
+            let lado2 = Number(prompt("Longitud en centímetros del lado 2: "));
+            let lado3 = Number(prompt("Longitud en centímetros del lado 3: "));
+            let s = (lado1 + lado2 + lado3) / 2;
+            let a = Math.sqrt(s*(s - lado1) * (s - lado2) * (s - lado3));
+            document.writeln(`El área de tu triángulo es ${a}.`); */
+        </script>
+        <!--EJERCICIO 3: Voltea una string dada por el usuario y EJERCICIO 4: Voltea una string dada por el usuario sin usar el método de reverse -->
+        <script>
+            //REVERSE (hay una versión corta y fácil, pero quise practicar las funciones y compliarlo más :v)
+            /*
+            let palabrita = window.prompt("Ingresa una palabra a convertir:")
+            let invertirPalabrita = (palabrita) => {
+                var resultado = palabrita.split('').reverse().join('');
+                console.log(resultado);
+                document.writeln(resultado);
+            }
+            //SIN REVERSE (quitando letras del final y agregándolas a un arreglo)
+            const invertirPalabra = (palabra) => {
+                let palabraInvertida = "";
+                for (let c = palabra.length - 1; c >= 0; c--) {
+                    palabraInvertida += palabra[c]; 
+                }
+                return palabraInvertida;
+            }
+           //invertirPalabrita(palabrita); para usar REVERSE (para usar, comente línea de abajo)
+            document.writeln(invertirPalabra(palabrita)); //para usar SIN REVERSE   
+            */
+        </script>
+        <br>
+        <!--EJERCICIO 5: Convierte una temperatura dada en C o F a F o C, respectivamente -->
+        <script>
+            /*
+            let c = Number(window.prompt('Ingresa grados Farenheit'))
+            document.write(c * (9/4) + 32);
+            */
+           let fa = Number(window.prompt('Ingrese los grados centígrados'))
+           document.writeln((fa - 32) * (5/9))
+        </script>
+        <!--EJERCICIO 6: Convierte una temperatura dada en C o F a F o C, respectivamente -->
+
+    </body>
+</html>
