@@ -5,8 +5,9 @@
          <!-- <script src="ejercicios.js"></script> Si se quiere ejecutar así, tendría que ponerlo al final, antes de finalizar la etiqueta body-->
     </head>
     <body>
-        <!--EJERCICIO 1: Fecha-->
         <br>
+
+        <!--EJERCICIO 1: Fecha-->
         <script>
             var f = new Date();
             document.writeln(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
@@ -18,19 +19,33 @@
             console.log, (`${hoy.toUpperCase()} ${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} y la hora es ${fecha.getHours()}`)
             document.writeln(`${hoy.toUpperCase()} ${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} y la hora es ${fecha.getHours()}`)
         </script>
-        <br>
+
         <!--EJERCICIO 2: Obtener área de un triángulo que se sabe la longitud de sus tres lados.-->
-        <script> /*
+        <script> 
+        /*
             let lado1 = Number(prompt("Longitud en centímetros del lado 1: ")); //recordar convertir el valor a numero (Number(prompt...)) o con parseInt
             let lado2 = Number(prompt("Longitud en centímetros del lado 2: "));
             let lado3 = Number(prompt("Longitud en centímetros del lado 3: "));
             let s = (lado1 + lado2 + lado3) / 2;
             let a = Math.sqrt(s*(s - lado1) * (s - lado2) * (s - lado3));
-            document.writeln(`El área de tu triángulo es ${a}.`); */
+            document.writeln(`El área de tu triángulo es ${a}.`); 
+
+            //con funcion
+            function area() {
+                let lado1 = Number(prompt("Longitud del lado1: ")),
+                let lado2 = Number(prompt("Longitud del lado2: ")),
+                let lado3 = Number(prompt("Longitud del lado3: ")),
+                semiperim = (lado1 + lado2 + lado3)/2;
+                area = Math.sqrt(semiperim * (semiperim - lado1) * (semiperim - lado2) * (semiperim - lado 3));
+                alert('El área del triángulo es" + area);
+            } 
+        */
         </script>
-        <!--EJERCICIO 3: Voltea una string dada por el usuario y EJERCICIO 4: Voltea una string dada por el usuario sin usar el método de reverse -->
+
+        <!--EJERCICIO 3: Voltea una string dada por el usuario y 
+            EJERCICIO 4: Voltea una string dada por el usuario sin usar el método de reverse -->
         <script>
-            //REVERSE (hay una versión corta y fácil, pero quise practicar las funciones y compliarlo más :v)
+            //REVERSE 
             /*
             let palabrita = window.prompt("Ingresa una palabra a convertir:")
             let invertirPalabrita = (palabrita) => {
@@ -50,17 +65,186 @@
             document.writeln(invertirPalabra(palabrita)); //para usar SIN REVERSE   
             */
         </script>
-        <br>
+
         <!--EJERCICIO 5: Convierte una temperatura dada en C o F a F o C, respectivamente -->
         <script>
             /*
             let c = Number(window.prompt('Ingresa grados Farenheit'))
             document.write(c * (9/4) + 32);
-            */
+            
            let fa = Number(window.prompt('Ingrese los grados centígrados'))
            document.writeln((fa - 32) * (5/9))
+           */
         </script>
-        <!--EJERCICIO 6: Convierte una temperatura dada en C o F a F o C, respectivamente -->
+
+        <!--EJERCICIO 6: Crea un objeto que tenga una propiedad cuyo nombre es definido por el usuario. Su valor debe ser verdadero -->
+        <script>
+            let objeto = newObject();
+            objeto[window.prompt('Escriba un valor al azar')] = true;
+            console.log(objeto);
+            document.writeln(objeto);
+        </script>
+
+        <!--EJERCICIO 7: Realiza la suma de los valores que de el usuario hasta recibir un valor negativo-->
+        <script> 
+        /*
+            n = Number(window.prompt('Ingrese números a sumar:'))
+            n2 = 0;
+            while (n >= 0) {
+            n2 += n;
+            n = Number(window.prompt('Ingrese otro número:'))
+        }
+        document.writeln(`La sumatoria es ${n2}.`)
+        */
+        </script>
+
+        <!--EJERCICIO 8: Convierte a mayúscula la primer letra de cada palabra en una cadena dada por el usuario-->
+        <script>
+        /*
+            let w = window.prompt('Ingrese una frase en minúsculas')
+
+            function capitalizarPalabras(w) {
+  
+                return w
+                    .toLowerCase()
+                    .trim()
+                    .split(' ')
+                    .map( v => v[0].toUpperCase() + v.substr(1) ) //`${v[0].toUppperCase()}${v.substr(1)}`
+                    .join(' ');  
+            }
+            document.writeln(capitalizarPalabras(w));
+
+            //otra manera más corta de hacerlo
+            let frase = (window.prompt('Ingresa una oración en minúsculas:'));
+            let palabras = frase.split(" ");
+            let palabrasMayusculas
+
+
+
+
+            //otra manera con Expresiones Regulares
+            var texto
+        */
+
+        </script>
+        <!--EJERCICIO 9: Revisa si un número dado es múltiplo de 3 o de 7-->
+        <script>
+        /*
+            let m = Number(window.prompt('Ingrese un número para ver si es múltiplo de 3 o de 7'));
+            function multiplos(m) {
+                if (m % 3 == 0 || m % 7 == 0 ) {
+                    document.writeln('Es múltiplo de 3 o 7')
+                } else {
+                    document.writeln('No es múltiplo de 3 o 7')
+                }
+            }
+            multiplos(m) //siempre llamar la funcion para que la ejecute porque arriba sólo se está declarando.
+        */
+        </script>
+        <!--EJERCICIO 9: Revisa cuantas veces se repite un caracter dado en una cadena dada-->
+        <script>
+        /*
+            let palabra = window.prompt('Ingrese una frase o palabra a revisar');
+            let letra = window.prompt('Ingrese caracter de interés');
+            let contador = 0;
+            for (let i = 0; i < palabra.length; i++) {
+                if (palabra.charAt(i) == letra) {
+                    contador++;
+                }
+            } 
+            document.writeln(`Tu caracter se repite ${contador} veces.`)
+        */
+        </script> 
+
+        <!--EJERCICIO 10: Revisa cuantas veces se repite un valor dado en un arreglo-->
+        <script>
+        /*
+            let valores = window.prompt('Ingrese valores al azar que se pueden o no repetir separándolos con espacios');
+            let arreglo = valores.split(' ');
+            let contador = 0;
+            for (let i = 0; i < arreglo.length; i++) {
+                if (arreglo.NOSE(i) == PALABRAREPETIDA) {
+                    contador++;
+                }
+            }
+            document.writeln(`${PALABRAREPETIDA} se repite ${contadar} veces en tu frase`)
+        */
+        </script>
+
+        <!--EJERCICIO 11: Divide un número de 3 dígitos en sus centenas, decenas y unidades-->
+        <script>
+            
+        
+            // document.writeln(`Tu número tiene ${centenas} centenas, ${decenas} decenas y ${unidades} unidades.`)
+        </script>
+
+        <!--EJERCICIO 12: Regresa todos los caracteres que no sean letras de una cadena-->
+        <script></script>
+
+        <!--EJERCICIO 13: Haz una función que lanza un error con el mensaje dado por el usuario-->
+        <script></script>
+
+        <!--EJERCICIO 14: Extiende la función anterior para atrapar el error e imprimir su mensaje y stack-->
+        <script></script>
+
+        <!--EJERCICIO 15: Suma los contenidos de un arreglo de números-->
+        <script></script> 
+
+        <!--EJERCICIO 16: Regresa un arreglo nuevo con el cuadrado de cada valor del arreglo original-->
+        <script></script>
+
+        <!--EJERCICIO 17: Regresa que tipo de ángulo es el dado-->
+        <script>
+            /*
+                Agudo: 0 a 90 grados
+                Recto: 90 grados
+                Obtuso: 90 a 180 grados
+                Llano: 180 grados
+            */
+        </script>
+  
+        <!--EJERCICIO 18: Regresa un arreglo nuevo sin los valores repetidos de un arreglo original  -->
+        <script></script>
+
+        <!--EJERCICIO 19: Quita los valores repetidos de un arreglo (sin usar otro arreglo)-->
+        <script></script> 
+
+        <!--EJERCICIO 20: Convierte un número binario dado por el usuario a decimal-->
+        <script></script>
+
+        <!--EJERCICIO 21: Convierte un número decimal dado por el usuario a binario, octal y hexadecimal (bases 2, 8 y 16)-->
+        <script></script>
+
+        <!--EJERCICIO 22: Regresa la cantidad de valores que comparten dos arreglos diferentes-->
+        <script></script>
+
+        <!--EJERCICIO 23: Valida que una cadena dada no tenga espacios en blanco-->
+        <script></script>
+
+        <!--EJERCICIO 24: Dada una cadena, determina su valor de scrabble-->
+        <script>
+            /*
+                1: E, A, I, O, N, R, T, L, S, U
+                2: D, G
+                3: B, C, M, P
+                4: F, H, V, W, Y
+                5: K
+                8: J, X
+                10: Q, Z
+            */
+        </script>
+        
+        <!--EJERCICIO 25: Determina si una cadena dada por el usuario es un acrónimo-->
+        <script></script>
+
+        <!--EJERCICIO 26: Implementa una lista ligada-->
+        <script></script>
+
+        <!--EJERCICIO 27: Implementa una lista doblemente ligada-->
+        <script></script>
+
+        <!--EJERCICIO 28: Obten el Máximo común divisor de dos números dados-->
+        <script></script>
 
     </body>
 </html>
