@@ -9,15 +9,14 @@
 
         <!--EJERCICIO 1: Fecha-->
         <script>
-            var f = new Date();
+            let f = new Date();
             document.writeln(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </script>
         <br>
         <script>
-            var hoy = "La fecha de hoy es: "
-            var fecha = new Date();
-            console.log, (`${hoy.toUpperCase()} ${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} y la hora es ${fecha.getHours()}`)
-            document.writeln(`${hoy.toUpperCase()} ${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} y la hora es ${fecha.getHours()}`)
+            let hoy = "La fecha de hoy es: ";
+            let d = new Date();
+            document.writeln(`${hoy.toUpperCase()} ${d.getDate()} / ${d.getMonth()} / ${d.getFullYear()} y la hora es ${d.getHours()}`);
         </script>
 
         <!--EJERCICIO 2: Obtener área de un triángulo que se sabe la longitud de sus tres lados.-->
@@ -88,8 +87,8 @@
         <!--EJERCICIO 7: Realiza la suma de los valores que de el usuario hasta recibir un valor negativo-->
         <script> 
         /*
-            n = Number(window.prompt('Ingrese números a sumar:'))
-            n2 = 0;
+            let n = Number(window.prompt('Ingrese números a sumar:'))
+            let n2 = 0;
             while (n >= 0) {
             n2 += n;
             n = Number(window.prompt('Ingrese otro número:'))
@@ -173,13 +172,33 @@
 
         <!--EJERCICIO 11: Divide un número de 3 dígitos en sus centenas, decenas y unidades-->
         <script>
-            
-        
-            // document.writeln(`Tu número tiene ${centenas} centenas, ${decenas} decenas y ${unidades} unidades.`)
+        /*
+            let cantidad = parseInt(window.prompt('Ingrese una cantidad de tres cifras:'))
+            function separarCifras(cantidad) {
+                if (cantidad.value == "") {
+                    alert("Escriba una cantidad por favor");
+                    return;
+                }
+                if (isNaN(valor)) {
+                    alert('Escriba solo NÚMEROS!');
+                } else {
+                    let cifras = valor.toString().split("");
+                    let unidades = cifras.length.pop();
+                    let decenas = cifras.length.pop();
+                    let centenas = cifras.length.pop();
+                }
+            }
+            separarCifras();
+            document.writeln(`Tu número tiene ${centenas} centenas, ${decenas} decenas y ${unidades} unidades.`) 
+        */
         </script>
 
         <!--EJERCICIO 12: Regresa todos los caracteres que no sean letras de una cadena-->
-        <script></script>
+        <script>
+            let frase = window.prompt("Ingrese una frase con números y palabras");
+
+        
+        </script>
 
         <!--EJERCICIO 13: Haz una función que lanza un error con el mensaje dado por el usuario-->
         <script></script>
@@ -216,10 +235,20 @@
         <script></script>
 
         <!--EJERCICIO 22: Regresa la cantidad de valores que comparten dos arreglos diferentes-->
-        <script></script>
+        <script>
+            let arreglo1 = window.prompt('Ingresa valores al azar');
+            let arreglo2 = window.prompt('Ingresa otros valores (pueden repetirse)');
+            function repetidos(primerArreglo, segundoArreglo) {
+                (arreglo1.forEach()
+            }
+
+
+        </script>
 
         <!--EJERCICIO 23: Valida que una cadena dada no tenga espacios en blanco-->
-        <script></script>
+        <script>
+
+        </script>
 
         <!--EJERCICIO 24: Dada una cadena, determina su valor de scrabble-->
         <script>

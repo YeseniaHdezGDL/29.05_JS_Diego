@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+
+        <!--EJERCICIO 1: Escribe una función llamada calculateDogAge que reciba un número (la edad humana del perro) y calcule su edad en años de perro (edad x 7)-->
+        <script>
+        /*
+            let dogAge = Number(window.prompt("Enter your dog's age:"));
+            function calculateDogAge(dogAge) {
+                return dogAge * 7;
+            };
+            document.writeln(`The age of your dog in human years is ${calculateDogAge(dogAge)}`);
+        */
+        </script>
+
+        <!--EJERCICIO 2: Escribe una función llamada getCandySupply que reciba dos números (edad, cantidad por día) y calcule cuantos dulces consumirías por el resto de tu vida.-->
+        <script>
+            //El resto de tu vida es definido por una edad constante (por ejemplo, 75 años)
+        /*
+            const life = 75;
+            let candiesInput = Number(window.prompt('Enter your daily consumption of sweets'));
+            let ageInput = Number(window.prompt('Enter your age:'));
+            function getCandySupply (candiesDay, age) {
+                let remYears = life - age;
+                return remYears * candiesDay;
+            };
+            document.writeln(`You're left to consume ${getCandySupply(candiesInput, ageInput)} sweets, enjoy!`)
+        */
+        </script>
+
+        <!--EJERCICIO 3: Crea una función que permita encadenar llamadas -->
+        <script>
+            //PENDIENTE
+            //a().a().a() ... etc
+        </script>
+
+        <!--EJERCICIO 4: Crea una función que recibe un tipo (formal/casual) y dos funciones, una para un saludo casual (hola!) y otra para un saludo formal (buenos dias) -->
+        <script>
+            // La función debe regresar el tipo de saludo que va a usarse
+        /*
+            let typeInput = window.prompt("Enter your type of greeting: (formal or casual)")
+            let surname = window.prompt("Enter your surname")
+            let formalInput = () => document.writeln(`Hello Mr. ${surname}.`)
+            let casualInput = () => document.writeln("Hi buddy!")
+            function saludo (type, formal, casual) {
+                if (type == 'formal') {
+                    formal()
+                } else { 
+                    casual()
+                }
+            };
+            saludo(typeInput, formalInput, casualInput)
+        */
+        </script>
+
+        <!--EJERCICIO 5: Conviertan cualquier ciclo for que use un arreglo de la parte 1 para que use forEach o map-->
+        <script>
+        /*
+        let palabra = window.prompt('Ingrese una frase o palabra a revisar');
+        let letra = window.prompt('Ingrese caracter de interés');
+        let contador = 0;
+        for (let i = 0; i < palabra.length; i++) {
+            if (palabra.charAt(i) == letra) {
+                contador++;
+            }
+        } 
+        document.writeln(`Tu caracter se repite ${contador} veces.`)
+
+        //.forEach hace lo mismo que el FOR de arriba
+
+        let palabras = window.prompt('Enter random words.')
+        let letra = window.prompt('Entra la letra a buscar')
+        let contador = 0;
+        palabras.split('').forEach(function(letraActual) {
+            if (letraActual === letra) {
+                contador++;
+            }
+        })
+        document.writeln(`Tu caracter se repite ${contador}`);
+        */
+        </script>
+
+        <!--EJERCICIO 6: Explica cual es la salida de las siguientes funciones y porqué:-->
+        <script>
+                
+            var a = 12;
+            (function() {
+                alert(a);
+                })();
+            
+            
+            /*
+            var a = 5;
+            (function() {
+              var a = 12;
+              alert(a);
+            })();
+            */
+            
+            /*
+            var a = 10;
+            var x = (function() {
+              var a = 12;
+              return (function() {
+                alert(a);
+              });
+            })();
+            x();
+            */
+            
+            /*
+            var a = 10;
+            var x = (function() {
+              var y = function() {
+                var a = 12;
+              };
+              return function() {
+                alert(a);
+              }
+            })();
+            x();
+            */
+            
+            /*
+            var a = 10;
+            var x = (function() {
+              (function() {
+                a = 12;
+              })();
+              return (function() {
+                alert(a);
+              });
+            })();
+            x();
+            */
+            
+            /*
+            var a = 10;
+            (function() {
+              var a = 15;
+              window.x = function() {
+                alert(a);
+              }
+            })();
+            x();
+            */
+            
+            /*
+            function leFunction() {
+              console.log(a);
+              console.log(foo());
+            
+              var a = 1;
+              function foo() {
+                 return 2;
+              }
+            }
+            leFunction();
+            */
+            
+            /*
+            var a = 1;
+            function someFunction(number) {
+              function otherFunction(input) {
+                return a;
+              }
+              a = 5;
+              return otherFunction;
+            }
+            
+            var firstResult = someFunction(9);
+            var result = firstResult(2);
+            */
+            
+            /*
+            var fullname = 'A Name';
+            var obj = {
+              fullname: 'Full Name',
+              prop: {
+                fullname: 'Le Name',
+                getFullname: function() {
+                  return this.fullname;
+                }
+              }
+            };
+            console.log(obj.prop.getFullname());
+            var aCall = obj.prop.getFullname;
+            console.log(aCall());
+            console.log(obj.fullname);
+            */
+            
+            /*
+            var a = 1;
+            function b() {
+              a = 10;
+              return;
+              function a() {}
+            }
+            b();
+            console.log(a);
+            */
+        </script>
+
+        <!--EJERCICIO 7: Crea una clase persona que recibe un nombre, apellido y edad, 
+                        Agrega métodos para cambiar y obtener cada una de las propiedades, 
+                        Agrega un método (describe) que regrese una cadena como esta:
+                        {Nombre} {Apellido}, {edad} años.-->
+        <script></script>
+
+        <!--EJERCICIO 8:    Crea una clase Product que recibe un nombre y un valor
+                            tiene un método (value) que regresa su valor con iva (x1.16)
+            
+                            Crea otra clase Cart que recibe un arreglo de Product
+                            tiene un método (add) que recibe un Product y lo agrega a su lista
+                            tiene un método (total) que regresa el total de todos los Product(con iva)
+            
+                            Crea otra clase Food que hereda de product
+                            su método value regresa el valor sin iva
+                            Esta clase debería poder usarse en Cart -->
+        <script></script>
+    </body>
+</html>
