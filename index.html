@@ -78,10 +78,11 @@
 
         <!--EJERCICIO 6: Crea un objeto que tenga una propiedad cuyo nombre es definido por el usuario. Su valor debe ser verdadero -->
         <script>
-            let objeto = newObject();
-            objeto[window.prompt('Escriba un valor al azar')] = true;
-            console.log(objeto);
-            document.writeln(objeto);
+            /*
+            let objetito = new Object();
+            objetito[promp('Escribe una propiedad de algo')] = true;
+            document.writeln(objetito);
+            */
         </script>
 
         <!--EJERCICIO 7: Realiza la suma de los valores que de el usuario hasta recibir un valor negativo-->
@@ -92,8 +93,20 @@
             while (n >= 0) {
             n2 += n;
             n = Number(window.prompt('Ingrese otro número:'))
-        }
-        document.writeln(`La sumatoria es ${n2}.`)
+            }
+            document.writeln(`La sumatoria es ${n2}.`)
+
+            //otra forma
+            let resultado= 0
+            let i = 0;
+
+            do {
+                i = Number(window.promp('Escribe un número'));
+                resultado = resultado + 1;
+                } while (i >- 1)
+            }
+            alert(resultado);
+
         */
         </script>
 
@@ -113,16 +126,12 @@
             }
             document.writeln(capitalizarPalabras(w));
 
-            //otra manera más corta de hacerlo
-            let frase = (window.prompt('Ingresa una oración en minúsculas:'));
-            let palabras = frase.split(" ");
-            let palabrasMayusculas
-
-
-
-
             //otra manera con Expresiones Regulares
-            var texto
+            let frase = String(window.promp("Escriba una frase en mayúsculas"))
+            let capitalLetter = frase.replace(/\b\w/g, function(palabra) {
+                return palabra.toUpperCase()
+            });
+            alert(capitalLetter)
         */
 
         </script>
@@ -138,6 +147,8 @@
                 }
             }
             multiplos(m) //siempre llamar la funcion para que la ejecute porque arriba sólo se está declarando.
+        
+            //hay otras dos maneras, checar apuntes
         */
         </script>
         <!--EJERCICIO 9: Revisa cuantas veces se repite un caracter dado en una cadena dada-->
@@ -152,22 +163,33 @@
                 }
             } 
             document.writeln(`Tu caracter se repite ${contador} veces.`)
+
+            //hay otras dos maneras de resolver, checar apuntes
         */
         </script> 
 
         <!--EJERCICIO 10: Revisa cuantas veces se repite un valor dado en un arreglo-->
         <script>
-        /*
-            let valores = window.prompt('Ingrese valores al azar que se pueden o no repetir separándolos con espacios');
-            let arreglo = valores.split(' ');
-            let contador = 0;
-            for (let i = 0; i < arreglo.length; i++) {
-                if (arreglo.NOSE(i) == PALABRAREPETIDA) {
-                    contador++;
+            /*
+            function valorRep(valor, arregloNuevo) {
+                let valor = document.writeln("Qué valor quiere buscar").value;
+                let valores = 0;
+                let arregloNuevo = [];
+                
+                while (valores >= 0) {
+                    arregloNuevo.push(valores);
+                    valores = window.prompt('Escribe valores numéricos');
                 }
+                let contador = 0;
+                for (var i = 0; i < arregloNuevo.length; i++) {
+                    if (arregloNuevo[i] == valor) {
+                        contador++;
+                    }
+                }
+                document.writeln("Ese valor se repite " + contador + "veces." );
             }
-            document.writeln(`${PALABRAREPETIDA} se repite ${contadar} veces en tu frase`)
-        */
+            //repasar xq no me quedó bien claro
+            */
         </script>
 
         <!--EJERCICIO 11: Divide un número de 3 dígitos en sus centenas, decenas y unidades-->
@@ -190,27 +212,85 @@
             }
             separarCifras();
             document.writeln(`Tu número tiene ${centenas} centenas, ${decenas} decenas y ${unidades} unidades.`) 
+        
+        //hay otra manera, buscar en apuntes.
         */
         </script>
 
         <!--EJERCICIO 12: Regresa todos los caracteres que no sean letras de una cadena-->
         <script>
-            let frase = window.prompt("Ingrese una frase con números y palabras");
+            /*
+            //Con expresiones regulares (repasar xq no me queda muy claro)
 
-        
+            let fraseMixta = String(window.prompt('Escribe una palabra'));
+            let arregloFrase = [];
+            let Regulares = /[A-Za-z]/
+
+            for (let i = 0; i < fraseMixta.length; i++) {
+                if (!fraseMixta[i].match(Regulares)) {
+                    fraseMixta.push(fraseMixta[i]);
+                }
+            }
+            alert ("Los caracteres " + (fraseMixta.join(" ") + "no son letras."));
+            */
         </script>
 
         <!--EJERCICIO 13: Haz una función que lanza un error con el mensaje dado por el usuario-->
-        <script></script>
+        <script>
+            /*
+            function error() {
+                let mensajeError = window.prompt("Escriba su mensaje de error");
+                throw new Error (mensajeError);
+            }
+            */
+        </script>
 
         <!--EJERCICIO 14: Extiende la función anterior para atrapar el error e imprimir su mensaje y stack-->
-        <script></script>
+        <script>
+            /*
+            function imprimirError() {
+                try {
+                    error() 
+                } catch (Error) {
+                    document.writeln(Error);
+                    document.writeln(Error.stack);
+                }
+            }
+            */
+        </script>
 
         <!--EJERCICIO 15: Suma los contenidos de un arreglo de números-->
-        <script></script> 
+        <script>
+            /*
+            let numeros = Array();
+            let sumar = 0;
+            function sumatoria () {
+                for(i = 0; n < 7; i++) {
+                    numeros[i] = Number(window.prompt('Escriba un número'))
+                }
+                for(e = 0; e < numeros.length; e++) {
+                    sumar += numeros[i];
+                }
+                return sumar
+            }
+            alert(`La suma de tus números es igual a ${sumatoria()}.`);
+
+            //hay otras  2 formas, checar apuntes.
+            */
+        </script> 
 
         <!--EJERCICIO 16: Regresa un arreglo nuevo con el cuadrado de cada valor del arreglo original-->
-        <script></script>
+        <script>
+            function alCuadrado() {
+                let arreglo = window.prompt('Ingrese números a convertir al cuadrado');
+                let cuadrado = [];
+                for (let i = 0; i < arreglo.length; i++) {
+                    if (/)
+                }
+            }
+        
+        
+        </script>
 
         <!--EJERCICIO 17: Regresa que tipo de ángulo es el dado-->
         <script>
@@ -236,13 +316,14 @@
 
         <!--EJERCICIO 22: Regresa la cantidad de valores que comparten dos arreglos diferentes-->
         <script>
+            /*
             let arreglo1 = window.prompt('Ingresa valores al azar');
             let arreglo2 = window.prompt('Ingresa otros valores (pueden repetirse)');
             function repetidos(primerArreglo, segundoArreglo) {
                 (arreglo1.forEach()
             }
 
-
+                */
         </script>
 
         <!--EJERCICIO 23: Valida que una cadena dada no tenga espacios en blanco-->
@@ -267,7 +348,17 @@
         <script></script>
 
         <!--EJERCICIO 26: Implementa una lista ligada-->
-        <script></script>
+        <script>
+        let plantas = ["monstera", "sativa", "marianum"];
+        let animales = ["felis", "canis", "ambystoma"];
+        let hongos = ["ganoderma", "amanita", "agaricus"];
+        let seresVivos = [];
+        seresVivos.push(plantas);
+        seresVivos.push(animales);
+        seresVivos.push(hongos);
+        console.log(seresVivos);
+        
+        </script>
 
         <!--EJERCICIO 27: Implementa una lista doblemente ligada-->
         <script></script>

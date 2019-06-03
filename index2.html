@@ -83,34 +83,40 @@
 
         <!--EJERCICIO 6: Explica cual es la salida de las siguientes funciones y porqué:-->
         <script>
-                
-            var a = 12;
+            /*   
+            let a = 12; 
             (function() {
                 alert(a);
-                })();
+                })
+                ();
+            //cambié var por let, y sigue apareciendo 12 en la navegador, lo cual es raro porque 'a' está declarada AFUERA del contexto de la función de abajo (se supone), PERO en la consola de chrome SI aparece un error
+            */
             
-            
-            /*
+          /*
             var a = 5;
             (function() {
               var a = 12;
               alert(a);
             })();
-            */
+            //aquí lo que pasa es que alert toma en cuenta 'a' DENTRO de la función, no la que está fuera, si a = 12 no existiera (como el caso de arriba) alert sería 5.
+          */
             
-            /*
-            var a = 10;
-            var x = (function() {
-              var a = 12;
-              return (function() {
-                alert(a);
-              });
-            })();
-            x();
+          /*
+            var a = 10; // no se usa
+            var x = (function() { //función x es una función anónima que se manda llamar así misma
+                var a = 12;
+                  return (function() {
+                    alert(a);
+                    });
+                  })
+            (); //aquí termina var x
+            x(); //aquí se ejecuta función de x
+
+            //Primero se declara la variable a, después se declara la variable x que es una función anónima, que básicamente lo que hace es regresar el resultado de otra función pequeña que lo que hace es mandar un alert con var a = 12, asignando 12 a función x.
             */
-            
-            /*
-            var a = 10;
+
+          /*
+            let a = 10;
             var x = (function() {
               var y = function() {
                 var a = 12;
@@ -118,32 +124,52 @@
               return function() {
                 alert(a);
               }
-            })();
+            })
+            ();
+            x();
+          
+          //Aquí lo que tenemos son dos declaraciones, primero de la variable a que es valor 10 y de x que es una función anónima también que adentro tiene una declaración de var 'y' y que adentro tiene una una declaración de variable a, se termina 'y' y lo que regresa x es un alert con a, imprimiendo 10 (no imporime el a = 12 porque ese valor vive y muere solo dentro de y) Lo siguiente es la manera en la que se pudiera imprimir el 12:
+          let a = 10;
+            var x = (function() {
+              var y = function() {
+                var a = 12;
+                return a
+              };
+              return function() {
+                alert(y());
+              }
+            })
+            ();
             x();
             */
-            
+
             /*
             var a = 10;
             var x = (function() {
               (function() {
                 a = 12;
-              })();
+              })
+              ();
               return (function() {
                 alert(a);
               });
-            })();
+            })
+            ();
             x();
+            //Aquí imprime el 12 xq a = 12 está REASIGNANDO un nuevo valor a la ya declarada variable de a y los () hacen que se ejecute(función anónima), y el return de abajo lo que regresa es el valor ya reasignado de a, si quisieramos imprimir 10, hay de dos formas una quitando los (); antes del return y la otra es poniéndole var a = 12(no me quedó muy claro este segundo método);
             */
-            
+
             /*
             var a = 10;
             (function() {
-              var a = 15;
-              window.x = function() {
+              let a = 15;
+              window.x = function() { //window.x es otra forma de declarar una variable como global porque window tiene propiedades que pueden aplicar a varias cosas.
                 alert(a);
               }
-            })();
+            })
+            ();
             x();
+            //imprime 15 porque es la variable más cercana, I guess
             */
             
             /*
@@ -157,6 +183,7 @@
               }
             }
             leFunction();
+            //imprime undefined y 2, porque una de las diferencias de la declaración de variables y funciones es que las funciones pueden ser declaradas en cualquier lugar y se van a ejecutar(console.log en este caso) y las variables tienen que ser declaradas ANTES de su console.log en este caso, para que imprima 1 sólo hay que cambiar var a = 1 arriba de console.log(a).
             */
             
             /*
@@ -171,9 +198,12 @@
             
             var firstResult = someFunction(9);
             var result = firstResult(2);
+            alert(firstResult);
+            alert(result);
             */
             
             /*
+            THIS AGARRANDO DIFERENTES CONTEXTOS
             var fullname = 'A Name';
             var obj = {
               fullname: 'Full Name',
@@ -188,6 +218,10 @@
             var aCall = obj.prop.getFullname;
             console.log(aCall());
             console.log(obj.fullname);
+            //Primero se declara una variable ('A name'), luego otra variable que es un objeto el cual tiene dos propiedades, la primera simplemente contiene un valor tipo string: 'Full Name' y la seguna propiedad tiene dos valores, el primero tipo string 'Le name' y el segundo valor es una función que regresa un this que apunta al fullname más cercano ('Le name')
+            //Lo primero que se imprime es 'Le name' porque esto obj.prop.getFullname() está apuntano primero a la var obj, y luego adentro a la segunda propiedad que es prop y en tercero que ejecute la func getFullname(), la cual regresa el 'fullname' más cercano == 'Le name'
+            //Lo segundo que imprime es 'Full name', porque antes de ese console log ( console.log(aCall()); ) se declara una variable la cual es igual a la de arriba pero SIN EJECUTAR la función (no tiene los paréntesis) Y AQUÍ YA NO SE QUÉ MÁS PASÓ :(
+            //El tercer console está fácil, simplemente aputna a obj a su primera propiedad qeu es fullname imprimiendo 'A name'.
             */
             
             /*
@@ -195,18 +229,63 @@
             function b() {
               a = 10;
               return;
-              function a() {}
+             function a() {}
             }
             b();
             console.log(a);
             */
+          
+            
         </script>
 
         <!--EJERCICIO 7: Crea una clase persona que recibe un nombre, apellido y edad, 
                         Agrega métodos para cambiar y obtener cada una de las propiedades, 
                         Agrega un método (describe) que regrese una cadena como esta:
                         {Nombre} {Apellido}, {edad} años.-->
-        <script></script>
+        <script>
+          let nombre1 = "Juan";
+          let apellido1 = "Rulfo";
+          let edad1 = "35";
+          let nombre2 = "Juan José";
+          let  apellido2 = "Arreola";
+
+          class Personita { //nombres de clases empiezan con mayúsculas
+            constructor (nombre, apellido, edad) { //parámetros
+              this.name = nombre; //atributo 1
+              this.surname = apellido; //atributo 2
+              this.age = edad; //atributo
+            }
+            // método de class getter (obtener)
+            get nombre () {
+              return this.name
+            }
+            get apellido () {
+              return this.surname
+            } 
+            get edad () {
+              return this.age
+            }
+            //método de class setter (cambiar)
+            set nombre (nombre) {
+              this.name = nombre;
+            }
+            //método de class regresar cadena
+            fullInfo () {
+              return this.name + " " + this.surname + " " + this.age; //preguntar cómo construir template
+            }      
+          }
+          const personita = new Personita (nombre1, apellido1, edad1);
+          
+          console.log(personita.edad); //es importante ya tener los get para las tres propiedades y ya nada más cambiar por .nombre o .apellido dependiendo lo que se quiera obtener
+
+          personita.nombre = nombre2;
+          console.log(personita.nombre)//imprime nombre cambiado
+          personita.apellido = apellido2;
+          console.log(personita.nombre)//imprime apellido cambiado
+
+          console.log(personita.fullInfo());
+
+        </script>
 
         <!--EJERCICIO 8:    Crea una clase Product que recibe un nombre y un valor
                             tiene un método (value) que regresa su valor con iva (x1.16)
@@ -218,6 +297,25 @@
                             Crea otra clase Food que hereda de product
                             su método value regresa el valor sin iva
                             Esta clase debería poder usarse en Cart -->
-        <script></script>
+        <script>
+          let nombre = "Coca-Cola";
+          let valor = 15;
+          let nombre = "Sprite";
+          let valor = 14;
+          let nombre = "Fanta";
+          let valor = 13;
+
+          class Product {
+            constructor (name, prize) {
+              this.sodaName = nombre;
+              this.sodaPrize = valor;
+            }
+          value 
+          }
+
+        
+        
+        
+        </script>
     </body>
 </html>
