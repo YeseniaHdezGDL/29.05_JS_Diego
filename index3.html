@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <script>//CALLBACKS
+    //EJERCICIO 1: Haz varios callbacks de forma que se imprima: 1 después de 3 segundos, 2 después de 1 segundo, 3 después de 4 segundos, En consola debería verse 2 1 3
+        /*
+        setTimeout(() => console.log(3), 1000);
+        setTimeout(() => console.log(2), 2000);
+        setTimeout(() => console.log(1), 3000);
+        */
+
+    //EJERCICIO 2: Escribe un callback que recibe un argumento y lo imprime
+        /*
+        let trabajadores = ['Juan', 'Francisco', 'Miguel'];
+       // let saludarTrabajador = 
+        trabajadores.forEach(function(trabajador) {
+            console.log('Buenos días ' + trabajador)
+        });
+        */
+
+        //callback que recibe un argumento
+        function argumento (algo) {
+            console.log(2)
+            console.log(algo);
+            console.log(3)
+        }
+
+        //función que recibe callback anterior y lo ejecuta
+        function gets(callback) {
+            console.log(1)
+            callback('Algo más')
+        }
+        gets(argumento);
+
+    //EJERCICIO 3: Crea una función que recibe el callback anterior y lo ejecuta
+        /*
+        let flores = ['margarita', 'rosa', 'clavel'];
+        let accion = function (flor) {
+            console.log('Buenos dias ' + flor)
+        }
+        flores.forEach(accion);
+        */
+
+    //EJERCICIO 4: Crea una función que llama a un callback y usa el valor que regresa para llamar a otro. Después debe llamar a un tercer callback con el valor que regresa el segundo.
+        /*
+        //con arrow function NO ESTÁ BIEN
+        let suma = (a) => (b) => (c) => a + b + c;
+        //en consola poner suma(2)(1)(3) -> imprime 6 
+        
+        
+        //sin arrow function  NO ESTÁ BIEN
+        function saludoCompleto (dato){
+            return function (dato2){
+                return function (dato3){
+                    return dato + dato2 + dato3;
+                }
+            }
+        }
+        console.log(saludoCompleto('Hola ')('cómo ')('estás?'))
+        */
+
+        /*
+        //Así va :) R-E-P-A-S-A-R
+        function first(callback) {
+            callback('first');
+        }
+        function second(value, callback) {
+            callback(`second, ${value}`);
+        }
+        function third(firstValue, secondValue, callback) {
+            callback(`third, (${secondValue}), ${firstValue}`);
+        }
+
+        first(firstValue => {
+            second(firstValue, secondValue => {
+                third(firstValue, secondValue, thirdValue => {
+                    console.log(thirdValue);
+                })
+            })
+        })
+
+        //ahora convertir a promesa
+        Promise.resolve('first').then(firstValue => {
+            Promise.resolve(`second, ${firstValue}`).then(secondValue => {
+                Promise.resolve(`third, (${secondValue}), ${firstValue}`).then(console.log);
+                });
+            });
+
+        //ahora an async
+        const asyncHell = async () => {
+            const firstValue = await Promise.resolve('first');
+            const secondValue = await Promise.resolve(`second, ${firstValue}`);
+            const thirdValue = await Promise.resolve(`third, (${secondValue}), ${firstValue}`);
+            console.log(thirdValue);
+        }
+        asyncHell();
+        */
+    </script>
+
+    <script>//PROMISES
+    //EJERCICIO 5: Convierte todos los ejercicios de la parte 1 a usar Promises
+    /*
+    let p1 = new Promise((resolve, reject) => setTimeout(resolve, 1000, 1));
+    let p2 = new Promise((resolve, reject) => setTimeout(resolve, 2000, 2));
+    let p3 = new Promise((resolve, reject) => setTimeout(resolve, 3000, 3));
+    let pAll = Promise.all([p3, p2, p1]);
+    setTimeout(() => console.log(pAll), 4000);
+    */
+
+    //EJERCICIO 6: Crea una Cadena de Promesas en la cual una lanza un error (no hagas Catch)
+    
+    hacerAlgo().then(function(resultado) {
+    return hacerAlgomas(resultado);
+    })
+    .then(function(nuevoResultado) {
+    return hacerTerceraCosa(nuevoResultado);
+    })
+    .then(function(resultadoFinal) {
+    console.log('Resultado de todo lo anterior: ' + resultadoFinal);
+    })
+    .catch(falloCallback); //SIN ESTO
+    
+
+    //EJERCICIO 7: Agrega un catch al ejercicio anterior
+
+
+    //EJERCICIO 8: Agrega un finally al ejercicio anterior
+    //EJERCICIO 9: Crea una función con 3 promesas, que acaben a tiempos diferentes y regresa en cuanto la primera termina
+    //EJERCICIO 10: Crea una función con 4 promesas, que acaben a tiempos diferentes y regresa cuando todas acaben
+    //EJERCICIO 11: Crea una Cadena de Promesas en la cual una se rechaza, asegurate de agregar un catch
+    //EJERCICIO 12: Crea una Cadena de Promesas en la cual una se rechaza, agrega varios catch
+
+    //EJERCICIO 13: Explica la salida de las siguientes promesas:
+        //Promise.resolve(1).then(v => v + 3).then(v => Promise.reject(v)).then(v => v * 3).catch(e => console.log(e));
+        //La primera es 1, luego 1+3=4, luego ese 4 se va a un reject así que se pasa al catch (saltándose el then v*3) e imprime 4.
+
+        //Promise.reject(2).then(v => v + 3).catch(e => e * 3).then(v => v - 1).then(v => console.log(v));
+        //la primer promesa está en reject por lo tanto ese 2 se pasa a catch (saltándose el then v+3), así que 2*3=6, se pasa al siguiente then 6-1=5, y siguiente es imprimir 5;
+
+        //Promise.all([Promise.resolve(1), Promise.resolve(2), Promise.reject(3), Promise.resolve(1)]).then(arr => console.log(arr)).catch(e => console.log(e));
+        //en la primera promesa tenemos un arreglo de promesas con 4 elementos, 3 de ellos des un reject, así que no pasa nada y pasa a catch (saltándose imprimir arr) por lo tanto en catch lo que imprime es 'e' cuyo valor será el reject que era 3.
+
+        //Promise.race([Promise.resolve(1), Promise.reject(2), Promise.reject(3), Promise.resolve(1)]).then(v => console.log(v)).catch(e => console.log(e));
+        //en la primera promesa tenemos un arreglo, en dicho arreglo resuelve Promise.resolve[1] imprimiéndo resuelto 1 y termina
+
+        //Promise.race([Promise.reject(1), Promise.resolve(2), Promise.reject(3), Promise.resolve(1)]).then(v => console.log(v)).catch(e => console.log(e));
+        //regresa un reject 1 y termina
+
+        //Promise.all([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3), Promise.resolve(1)]).then(arr => console.log(arr)).catch(arr => console.log(arr));
+        //Imprime 1 2 3 1 que es lo que indica el then después del arreglo.
+    </script>
+</html>

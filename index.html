@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-         <!-- <script src="ejercicios.js"></script> Si se quiere ejecutar así, tendría que ponerlo al final, antes de finalizar la etiqueta body-->
-    </head>
+    <head></head>
     <body>
-        <br>
 
         <!--EJERCICIO 1: Fecha-->
         <script>
@@ -69,7 +65,7 @@
         <script>
             /*
             let c = Number(window.prompt('Ingresa grados Farenheit'))
-            document.write(c * (9/4) + 32);
+            document.writeIn(c * (9/4) + 32);
             
            let fa = Number(window.prompt('Ingrese los grados centígrados'))
            document.writeln((fa - 32) * (5/9))
@@ -195,44 +191,19 @@
         <!--EJERCICIO 11: Divide un número de 3 dígitos en sus centenas, decenas y unidades-->
         <script>
         /*
-            let cantidad = parseInt(window.prompt('Ingrese una cantidad de tres cifras:'))
-            function separarCifras(cantidad) {
-                if (cantidad.value == "") {
-                    alert("Escriba una cantidad por favor");
-                    return;
-                }
-                if (isNaN(valor)) {
-                    alert('Escriba solo NÚMEROS!');
-                } else {
-                    let cifras = valor.toString().split("");
-                    let unidades = cifras.length.pop();
-                    let decenas = cifras.length.pop();
-                    let centenas = cifras.length.pop();
-                }
+            function separarNumero(cantidad) {
+                let num = cantidad.toString().split(' ');
+                let result = num[0] + " centena" + num[1] + " decena" + num[2] + " unidades";
+                console.log(result);
             }
-            separarCifras();
-            document.writeln(`Tu número tiene ${centenas} centenas, ${decenas} decenas y ${unidades} unidades.`) 
-        
-        //hay otra manera, buscar en apuntes.
+            separarNumero(Number(window.prompt('Escriba un númro de tres cifras')));
         */
+
         </script>
 
         <!--EJERCICIO 12: Regresa todos los caracteres que no sean letras de una cadena-->
         <script>
-            /*
-            //Con expresiones regulares (repasar xq no me queda muy claro)
 
-            let fraseMixta = String(window.prompt('Escribe una palabra'));
-            let arregloFrase = [];
-            let Regulares = /[A-Za-z]/
-
-            for (let i = 0; i < fraseMixta.length; i++) {
-                if (!fraseMixta[i].match(Regulares)) {
-                    fraseMixta.push(fraseMixta[i]);
-                }
-            }
-            alert ("Los caracteres " + (fraseMixta.join(" ") + "no son letras."));
-            */
         </script>
 
         <!--EJERCICIO 13: Haz una función que lanza un error con el mensaje dado por el usuario-->
@@ -281,15 +252,15 @@
 
         <!--EJERCICIO 16: Regresa un arreglo nuevo con el cuadrado de cada valor del arreglo original-->
         <script>
+        /*
             function alCuadrado() {
                 let arreglo = window.prompt('Ingrese números a convertir al cuadrado');
-                let cuadrado = [];
-                for (let i = 0; i < arreglo.length; i++) {
-                    if (/)
+                let cuadrado = arreglo.push[];
+                let alCuadrado = arreglo.forEach(function(elemento)) {
+                    Math.sqrt(arreglo)
                 }
-            }
-        
-        
+                console.log(alCuadrado);
+        */
         </script>
 
         <!--EJERCICIO 17: Regresa que tipo de ángulo es el dado-->
@@ -349,6 +320,8 @@
 
         <!--EJERCICIO 26: Implementa una lista ligada-->
         <script>
+        /*
+        //así no
         let plantas = ["monstera", "sativa", "marianum"];
         let animales = ["felis", "canis", "ambystoma"];
         let hongos = ["ganoderma", "amanita", "agaricus"];
@@ -357,7 +330,38 @@
         seresVivos.push(animales);
         seresVivos.push(hongos);
         console.log(seresVivos);
-        
+        */
+
+        let listaDoble = {
+            values: [],
+            add: (x) => listaDoble.values.push(x),
+            next: () => {
+                listaDoble
+            }
+
+        }
+        let list = {
+        current: 0,
+        values: [],
+        add: (v) => list.values.push(v),
+        next: () => {
+            list.current = list.current + 1 === list.values.length ? 0 : list.current + 1;
+            return list.values[list.current];
+        },
+        delete: () => list.values.splice(list.current, 1),
+        }
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        console.log('Initial:', [1, 2, 3, 4]);
+        console.log('Next:', list.next());
+        console.log('Next:', list.next());
+        console.log('Next:', list.next());
+        console.log('Next:', list.next());
+        console.log('Next:', list.next());
+        console.log('Delete:', list.delete());
+        console.log('Next:', list.next());
         </script>
 
         <!--EJERCICIO 27: Implementa una lista doblemente ligada-->
